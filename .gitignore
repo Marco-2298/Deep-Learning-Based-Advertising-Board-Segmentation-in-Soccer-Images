@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments and environment variables
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+
+#Cose mie
+help.txt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Data and model weights: keep only data/README.md under version control
+data/*
+!data/README.md
+checkpoints/
+weights/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+
+# Generated experiment outputs: keep folder placeholders only
+outputs/figures/*
+outputs/metrics/*
+outputs/predictions/*
+!outputs/figures/.gitkeep
+!outputs/metrics/.gitkeep
+!outputs/predictions/.gitkeep
+
+# Logs and temporary files
+logs/
+wandb/
+mlruns/
+*.log
+*.tmp
+*.bak

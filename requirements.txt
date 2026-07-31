@@ -1,0 +1,24 @@
+# Core deep-learning stack. Use Python 3.10 or 3.11.
+torch>=2.5
+torchvision>=0.20
+
+# Detection and segmentation
+rfdetr
+git+https://github.com/facebookresearch/sam2.git
+
+# Data handling, evaluation and visualisation
+numpy>=1.26
+opencv-python>=4.10
+pillow>=10.0
+pandas>=2.2
+pyyaml>=6.0
+pycocotools>=2.0.8
+scikit-learn>=1.5
+supervision>=0.25
+matplotlib>=3.9
+seaborn>=0.13
+tqdm>=4.66
+
+# Notebooks
+jupyterlab>=4.2
+ipykernel>=6.29
