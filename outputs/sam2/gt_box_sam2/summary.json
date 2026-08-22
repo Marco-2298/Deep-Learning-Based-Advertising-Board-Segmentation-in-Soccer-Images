@@ -1,0 +1,10 @@
+{
+    "model": "facebook/sam2.1-hiera-small",
+    "num_images": 1620,
+    "mean_iou": 0.783371979892462,
+    "median_iou": 0.8306196875220153,
+    "micro_iou": 0.7778057310170963,
+    "mean_dice": 0.8697855834964093,
+    "median_dice": 0.9074737836908463,
+    "micro_dice": 0.8750176888811216
+}

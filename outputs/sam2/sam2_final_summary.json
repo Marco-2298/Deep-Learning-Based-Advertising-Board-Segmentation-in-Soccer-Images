@@ -1,0 +1,23 @@
+{
+    "sam2_model": "facebook/sam2.1-hiera-small",
+    "rf_detr_threshold": 0.5,
+    "num_images": 1620,
+    "gt_bbox_sam2": {
+        "mean_iou": 0.783371979892462,
+        "micro_iou": 0.7778057310170963,
+        "mean_dice": 0.8697855834964093,
+        "micro_dice": 0.8750176888811216
+    },
+    "rfdetr_sam2_blind": {
+        "mean_iou": 0.5801971545223459,
+        "micro_iou": 0.5854851647304294,
+        "mean_dice": 0.6659054174698061,
+        "micro_dice": 0.7385564718670528
+    },
+    "rfdetr_sam2_gt_aligned": {
+        "mean_iou": 0.5801218795007899,
+        "micro_iou": 0.5856254600285361,
+        "mean_dice": 0.6656821620143604,
+        "micro_dice": 0.7386680837200946
+    }
+}
