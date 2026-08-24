@@ -1,0 +1,16 @@
+detector:
+  model: rfdetr_nano
+  epochs: 5
+  batch_size: 4
+  grad_accum_steps: 4
+  resolution: 384
+
+evaluation:
+  detection_threshold: 0.50
+
+segmentation:
+  model: facebook/sam2.1-hiera-small
+
+seeds:
+  dataset_split: 42
+  reviewed_subset: 42

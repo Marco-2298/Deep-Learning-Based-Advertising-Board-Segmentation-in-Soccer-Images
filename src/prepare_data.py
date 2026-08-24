@@ -32,6 +32,8 @@ DEFAULT_OUTPUT_DIR = (
     PROJECT_ROOT / "data" / "processed" / "rf_detr"
 )
 
+# Le sei classi sponsor originali vengono accorpate perché
+# il task richiede solamente la localizzazione del pannello.
 
 ALLOWED_CLASSES = {
     "heineken",
@@ -109,6 +111,8 @@ def parse_arguments() -> argparse.Namespace:
         "--min-area",
         type=int,
         default=100,
+        # Esclude le annotazioni residuali estremamente piccole
+        # individuate durante l'analisi preliminare del dataset.
         help="Area minima in pixel per mantenere una bounding box.",
     )
 
@@ -277,7 +281,7 @@ def build_coco_split(
     skipped_invalid_boxes = 0
     skipped_unknown_classes = 0
     size_mismatches = 0
-    negative_images = 0
+    zero_annotation_images = 0
 
     annotation_id = 1
 
@@ -326,7 +330,7 @@ def build_coco_split(
         objects = supervisely_data.get("objects", [])
 
         if len(objects) == 0:
-            negative_images += 1
+            zero_annotation_images += 1
 
         coco_images.append(
             {
@@ -431,7 +435,7 @@ def build_coco_split(
     return {
         "images": len(coco_images),
         "annotations": len(coco_annotations),
-        "negative_images": negative_images,
+        "zero_annotation_images": zero_annotation_images,
         "source_class_counts": dict(source_class_counts),
         "skipped_empty_masks": skipped_empty_masks,
         "skipped_small_boxes": skipped_small_boxes,

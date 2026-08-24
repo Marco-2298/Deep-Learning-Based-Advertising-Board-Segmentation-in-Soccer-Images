@@ -80,7 +80,7 @@ def main() -> None:
         if len(annotations_by_image[image_id]) > 0
     ]
 
-    negative_ids = [
+    zero_annotation_ids = [
         image_id
         for image_id in images_by_id
         if len(annotations_by_image[image_id]) == 0
@@ -88,14 +88,14 @@ def main() -> None:
 
     random_generator = random.Random(arguments.seed)
 
-    number_of_negative_samples = min(
+    number_of_zero_annotation_samples = min(
         2,
-        len(negative_ids),
+        len(zero_annotation_ids),
         arguments.samples,
     )
 
     number_of_positive_samples = (
-        arguments.samples - number_of_negative_samples
+        arguments.samples - number_of_zero_annotation_samples
     )
 
     selected_ids = random_generator.sample(
@@ -103,11 +103,11 @@ def main() -> None:
         min(number_of_positive_samples, len(positive_ids)),
     )
 
-    if number_of_negative_samples > 0:
+    if number_of_zero_annotation_samples > 0:
         selected_ids.extend(
             random_generator.sample(
-                negative_ids,
-                number_of_negative_samples,
+                zero_annotation_ids,
+                number_of_zero_annotation_samples,
             )
         )
 
@@ -199,7 +199,8 @@ def main() -> None:
     print(f"Figura salvata in: {output_path}")
     print(
         f"Campione: {len(selected_ids)} immagini, "
-        f"di cui {number_of_negative_samples} negative"
+        f"di cui {number_of_zero_annotation_samples} "
+        "senza annotazioni"
     )
 
 

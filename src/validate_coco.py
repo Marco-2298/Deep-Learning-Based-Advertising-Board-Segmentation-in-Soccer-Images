@@ -209,7 +209,7 @@ def validate_split(
                 f"{annotation.get('id')}."
             )
 
-    negative_images = sum(
+    zero_annotation_images = sum(
         count == 0
         for count in annotations_per_image.values()
     )
@@ -232,14 +232,14 @@ def validate_split(
     print(f"\n[{split_name}] validazione completata")
     print(f"Immagini: {len(images)}")
     print(f"Annotazioni: {len(annotations)}")
-    print(f"Immagini negative: {negative_images}")
+    print(f"immagini senza annotazioni: {zero_annotation_images}")
     print(f"Categorie: {categories}")
 
     return (
         {
             "images": len(images),
             "annotations": len(annotations),
-            "negative_images": negative_images,
+            "zero_annotation_images": zero_annotation_images,
         },
         coco_file_names,
     )
@@ -299,8 +299,8 @@ def main() -> None:
         for summary in summaries.values()
     )
 
-    total_negative_images = sum(
-        summary["negative_images"]
+    total_zero_annotation_images = sum(
+        summary["zero_annotation_images"]
         for summary in summaries.values()
     )
 
@@ -311,8 +311,8 @@ def main() -> None:
         f"Totale annotazioni: {total_annotations}"
     )
     print(
-        f"Totale immagini negative: "
-        f"{total_negative_images}"
+        f"Totale immagini senza annotazioni: "
+        f"{total_zero_annotation_images}"
     )
     print("Duplicati tra gli split: 0")
 
