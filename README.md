@@ -45,7 +45,6 @@ Dopo la conversione delle annotazioni Supervisely in formato COCO e il preproces
 | Test | 1.327 | 2.939 |
 | **Total** | **8.851** | **19.146** |
 
-Lo split è stato generato con seed `42`.
 
 ### Segmentation dataset
 
@@ -193,23 +192,6 @@ Versione RF-DETR utilizzata:
 rfdetr==1.9.1
 ```
 
----
-
-## Data preparation
-
-Conversione e preparazione del detection dataset:
-
-```bash
-python -m src.prepare_data
-```
-
-Validazione della struttura COCO:
-
-```bash
-python -m src.validate_coco
-```
-
----
 
 ## Limitations
 
