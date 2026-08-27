@@ -181,48 +181,11 @@ Esempio di funzionamento della pipeline completa RF-DETR → SAM 2.
 
 ![RF-DETR to SAM 2 end-to-end result](outputs/Imgs/best.png)
 
----
 
-## Repository structure
-
-```text
-football-adboard-segmentation/
-├── configs/
-│   └── experiment.yaml
-├── data/
-├── notebooks/
-│   ├── 03_train_rfdetr_colab.ipynb
-│   ├── 04_evaluate_rfdetr_colab.ipynb
-│   ├── 05_review_test_subset_colab.ipynb
-│   └── 06_sam2_segmentation_colab.ipynb
-├── outputs/
-├── src/
-│   ├── __init__.py
-│   ├── prepare_data.py
-│   ├── utils.py
-│   ├── validate_coco.py
-│   └── visualize_coco.py
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
-
-### Notebooks
-
-- `03_train_rfdetr_colab.ipynb`: training di RF-DETR Nano.
-- `04_evaluate_rfdetr_colab.ipynb`: valutazione e analisi qualitativa del detector.
-- `05_review_test_subset_colab.ipynb`: revisione manuale del test subset e confronto Original GT / Revised GT.
-- `06_sam2_segmentation_colab.ipynb`: esperimenti GT bbox → SAM 2 e RF-DETR → SAM 2.
 
 ---
 
 ## Setup
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
 
 Versione RF-DETR utilizzata:
 
@@ -258,8 +221,6 @@ I principali limiti osservati riguardano:
 - forte prospettiva e occlusioni;
 - dipendenza di SAM 2 dalla qualità della bounding box;
 - propagazione degli errori tra detection e segmentation.
-
-Il progetto non include advertising replacement, inpainting o rimozione della rete della porta.
 
 ---
 
