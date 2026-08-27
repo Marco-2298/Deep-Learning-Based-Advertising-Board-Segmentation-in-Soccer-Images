@@ -90,6 +90,13 @@ Il training è stato eseguito su Google Colab con GPU NVIDIA T4.
 
 ---
 
+### Qualitative detection results
+
+Alcuni esempi qualitativi mostrano il confronto tra le bounding box della ground truth e le predizioni prodotte da RF-DETR.
+
+![RF-DETR qualitative results](outputs/Imgs/output2.png)
+
+
 ## Annotation review
 
 L'analisi qualitativa ha evidenziato la presenza di pannelli pubblicitari visibili ma non rappresentati nella ground truth originale.
@@ -147,6 +154,12 @@ Le bounding box vengono ricavate direttamente dalle ground-truth masks e utilizz
 | Median Dice | 0.9075 |
 | Micro Dice | 0.8750 |
 
+#### Qualitative example
+
+Esempio di segmentazione ottenuta da SAM 2 utilizzando una bounding box derivata direttamente dalla ground-truth mask.
+
+![SAM 2 with ground-truth bounding box](outputs/Imgs/output4.png)
+
 ### RF-DETR → SAM 2
 
 Le bounding box vengono prodotte automaticamente da RF-DETR utilizzando una confidence threshold pari a `0.50`.
@@ -161,6 +174,12 @@ Le bounding box vengono prodotte automaticamente da RF-DETR utilizzando una conf
 Il confronto mostra un degrado delle prestazioni quando il prompt ideale viene sostituito dalla detection automatica.
 
 Alla soglia `0.50`, RF-DETR non produce detection in 227 dei 1.620 frame. Un'analisi diagnostica a soglie inferiori mostra tuttavia che 224 di questi 227 frame contengono almeno una proposta a confidence più bassa.
+
+#### End-to-end qualitative example
+
+Esempio di funzionamento della pipeline completa RF-DETR → SAM 2.
+
+![RF-DETR to SAM 2 end-to-end result](outputs/Imgs/best.png)
 
 ---
 
