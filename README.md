@@ -95,6 +95,38 @@ Alcuni esempi qualitativi mostrano il confronto tra le bounding box della ground
 
 ![RF-DETR qualitative results](outputs/Imgs/output2.png)
 
+## YOLO11n baseline
+
+Per contestualizzare le prestazioni di RF-DETR Nano è stata introdotta una baseline basata su YOLO11n.
+
+YOLO11n è stato addestrato:
+
+sugli stessi split train/validation/test utilizzati per RF-DETR;
+sulla stessa classe advertising_board;
+per 5 epoche;
+con risoluzione 384 × 384;
+con batch size 16;
+su GPU NVIDIA Tesla T4.
+
+Il modello è stato inizializzato da pesi pre-addestrati.
+
+RF-DETR Nano vs YOLO11n
+Metric	RF-DETR Nano	YOLO11n
+mAP@50:95	0.8797	0.7221
+mAP@50	0.9883	0.9866
+mAP@75	0.9786	0.9080
+Precision	0.9871	0.9703
+Recall	0.9867	0.9575
+F1	0.9869	0.9639
+
+I due detector raggiungono prestazioni quasi equivalenti sulla mAP@50, mentre RF-DETR mantiene un vantaggio più evidente alle soglie IoU più severe.
+
+Questo suggerisce una maggiore accuratezza geometrica delle bounding box prodotte da RF-DETR rispetto alla baseline considerata.
+
+Tale caratteristica è rilevante nella pipeline proposta, poiché le bounding box prodotte da RF-DETR vengono successivamente utilizzate come prompt per SAM 2.
+
+Il confronto costituisce una baseline pratica e non un benchmark esaustivo tra famiglie di detector.
+
 
 ## Annotation review
 
