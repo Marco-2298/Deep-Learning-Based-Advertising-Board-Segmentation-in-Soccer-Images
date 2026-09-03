@@ -140,3 +140,4 @@ matplotlib
 Pillow
 opencv-python
 tqdm
+ultralytics
